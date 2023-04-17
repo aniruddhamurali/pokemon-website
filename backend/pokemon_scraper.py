@@ -13,6 +13,7 @@ mongo = MongoClient("mongodb+srv://{}:{}@pokemon.vujdsli.mongodb.net/test".forma
 db = mongo["pokemon"]
 pokemon = db["pokemon"]
 pokemon_official_list = db["pokemon_official_list"]
+moves = db["moves"]
 
 
 '''
@@ -52,7 +53,7 @@ with open('data/pokedex.txt') as file:
 '''
 
 
-
+'''
 # Scrape pokemon learnsets and update pokemon entries in database
 with open('data/learnsets.txt') as file:
     official_pokemon = list(pokemon_official_list.find())[0]['official_pokemon']
@@ -108,3 +109,30 @@ with open('data/learnsets.txt') as file:
         query = {"lowercase_name": pmon}
         newvalues = { "$set": {"learnset": learnset} }
         x = pokemon.update_one(query, newvalues)
+'''
+
+
+
+# Scrape moves and put them in database
+with open('data/moves.txt') as file:
+    data = json.loads(file.read())
+    for move in data:
+        # Move must have description
+        if "desc" not in data[move]:
+            continue
+
+        movedict = {
+            "number": data[move]["num"],
+            "accuracy": data[move]["accuracy"],
+            "base_power": data[move]["basePower"],
+            "category": data[move]["category"],
+            "name": data[move]["name"],
+            "lowercase_name": move,
+            "pp": data[move]["pp"],
+            "priority": data[move]["priority"],
+            "type": data[move]["type"],
+            "description": data[move]["desc"],
+            "short_description": data[move]["shortDesc"],
+        }
+        
+        x = moves.insert_one(movedict)
