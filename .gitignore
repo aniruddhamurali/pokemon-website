@@ -109,3 +109,6 @@ backend/venv
 
 # pycache
 __pycache__*
+
+# mongodb
+backend/mongodb_creds
