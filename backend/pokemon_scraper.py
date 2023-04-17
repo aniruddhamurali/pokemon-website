@@ -14,6 +14,8 @@ db = mongo["pokemon"]
 pokemon = db["pokemon"]
 pokemon_official_list = db["pokemon_official_list"]
 moves = db["moves"]
+abilities = db["abilities"]
+items = db["items"]
 
 
 '''
@@ -112,7 +114,7 @@ with open('data/learnsets.txt') as file:
 '''
 
 
-
+'''
 # Scrape moves and put them in database
 with open('data/moves.txt') as file:
     data = json.loads(file.read())
@@ -134,5 +136,41 @@ with open('data/moves.txt') as file:
             "description": data[move]["desc"],
             "short_description": data[move]["shortDesc"],
         }
-        
+
         x = moves.insert_one(movedict)
+'''
+
+
+'''
+# Scrape abilities and put them in database
+with open('data/abilities.txt') as file:
+    data = json.loads(file.read())
+    for ability in data:
+        abilitydict = {
+            "name": data[ability]["name"],
+            "lowercase_name": ability,
+            "rating": data[ability]["rating"],
+            "description": data[ability]["desc"],
+            "short_description": data[ability]["shortDesc"],
+        }
+        
+        x = abilities.insert_one(abilitydict)
+'''
+
+
+# Scrape items and put them in database
+with open('data/items.txt') as file:
+    data = json.loads(file.read())
+    for item in data:
+        # Item must have description
+        if "desc" not in data[item]:
+            continue
+        
+        itemdict = {
+            "name": data[item]["name"],
+            "lowercase_name": item,
+            "spritenumber": data[item]["spritenum"],
+            "description": data[item]["desc"],
+        }
+        
+        x = items.insert_one(itemdict)
