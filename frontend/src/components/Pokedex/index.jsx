@@ -16,6 +16,8 @@ export default function Pokedex() {
     });
   }, []);
 
+  if (!pokemon) return 'Loading...';
+
   return (
     <div>
         <br></br>
@@ -41,22 +43,219 @@ export default function Pokedex() {
             </thead>
             <tbody>
                 {
-                    pokemon.map((item, index) => (
-                        <tr>
-                            <td><img src={item["main_sprite"]} alt="" width="60px"></img></td>
-                            <td>{item["name"]}</td>
-                            <td>{item["types"][0] + ", " + item["types"][1]}</td>
-                            <td>{item["abilities"]["0"]}</td>
-                            <td>{item["abilities"]["H"]}</td>
-                            <td>{item["hp"]}</td>
-                            <td>{item["atk"]}</td>
-                            <td>{item["def"]}</td>
-                            <td>{item["spa"]}</td>
-                            <td>{item["spd"]}</td>
-                            <td>{item["spe"]}</td>
-                            <td>BST</td>
-                        </tr>
-                    ))
+                    pokemon.map((item, index) => {
+                        if (item["types"][1] && item["abilities"]["1"]) {
+                            return <tr>
+                                <td><img src={item["main_sprite"]} alt="" width="60px"></img></td>
+                                <td>{item["name"]}</td>
+                                <td>{item["types"][0] + ", " + item["types"][1]}</td>
+                                <td>
+                                    <div>
+                                        <p className="firstAbility">{item["abilities"]["0"]}</p>
+                                        <p>{item["abilities"]["1"]}</p>
+                                    </div>
+                                </td>
+                                <td>{item["abilities"]["H"]}</td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">HP</p>
+                                        <p>{item["hp"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">ATK</p>
+                                        <p>{item["atk"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">DEF</p>
+                                        <p>{item["def"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPA</p>
+                                        <p>{item["spa"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPD</p>
+                                        <p>{item["spd"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPE</p>
+                                        <p>{item["spe"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">BST</p>
+                                        <p>{item["bst"]}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        } else if (item["types"][1]) {
+                            return <tr>
+                                <td><img src={item["main_sprite"]} alt="" width="60px"></img></td>
+                                <td>{item["name"]}</td>
+                                <td>{item["types"][0] + ", " + item["types"][1]}</td>
+                                <td>{item["abilities"]["0"]}</td>
+                                <td>{item["abilities"]["H"]}</td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">HP</p>
+                                        <p>{item["hp"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">ATK</p>
+                                        <p>{item["atk"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">DEF</p>
+                                        <p>{item["def"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPA</p>
+                                        <p>{item["spa"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPD</p>
+                                        <p>{item["spd"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPE</p>
+                                        <p>{item["spe"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">BST</p>
+                                        <p>{item["bst"]}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        } else if (item["abilities"]["1"]) {
+                            return <tr>
+                                <td><img src={item["main_sprite"]} alt="" width="60px"></img></td>
+                                <td>{item["name"]}</td>
+                                <td>{item["types"][0]}</td>
+                                <td>
+                                    <div>
+                                        <p className="firstAbility">{item["abilities"]["0"]}</p>
+                                        <p>{item["abilities"]["1"]}</p>
+                                    </div>
+                                </td>
+                                <td>{item["abilities"]["H"]}</td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">HP</p>
+                                        <p>{item["hp"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">ATK</p>
+                                        <p>{item["atk"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">DEF</p>
+                                        <p>{item["def"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPA</p>
+                                        <p>{item["spa"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPD</p>
+                                        <p>{item["spd"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPE</p>
+                                        <p>{item["spe"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">BST</p>
+                                        <p>{item["bst"]}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        } else {
+                            return <tr>
+                                <td><img src={item["main_sprite"]} alt="" width="60px"></img></td>
+                                <td>{item["name"]}</td>
+                                <td>{item["types"][0]}</td>
+                                <td>{item["abilities"]["0"]}</td>
+                                <td>{item["abilities"]["H"]}</td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">HP</p>
+                                        <p>{item["hp"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">ATK</p>
+                                        <p>{item["atk"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">DEF</p>
+                                        <p>{item["def"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPA</p>
+                                        <p>{item["spa"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPD</p>
+                                        <p>{item["spd"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">SPE</p>
+                                        <p>{item["spe"]}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p className="statHeader">BST</p>
+                                        <p>{item["bst"]}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    })
                 }
             </tbody>
         </Table>

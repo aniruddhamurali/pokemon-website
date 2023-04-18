@@ -43,7 +43,8 @@ with open('data/pokedex.txt') as file:
             "def": data[key]["baseStats"]["def"],
             "spa": data[key]["baseStats"]["spa"],
             "spd": data[key]["baseStats"]["spd"],
-            "spe": data[key]["baseStats"]["spe"]
+            "spe": data[key]["baseStats"]["spe"],
+            "bst": int(data[key]["baseStats"]["hp"]) + int(data[key]["baseStats"]["atk"]) + int(data[key]["baseStats"]["def"]) + int(data[key]["baseStats"]["spa"]) + int(data[key]["baseStats"]["spd"]) + int(data[key]["baseStats"]["spe"])
         }
         if "genderRatio" in data[key]:
             pokedict["genderRatio"] = data[key]["genderRatio"]
@@ -188,4 +189,4 @@ for pmon in all_pokemon:
     query = {"lowercase_name": pmon["lowercase_name"]}
     newvalues = { "$set": {"main_sprite": img} }
     x = pokemon.update_one(query, newvalues)
-'''
+''' 

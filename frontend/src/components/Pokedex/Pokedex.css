@@ -1,4 +1,14 @@
 .table {
     width: 50%;
     margin: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.firstAbility {
+    margin-bottom: 0;
+}
+
+.statHeader {
+    margin-bottom: 0;
+    color: #999999;
 }
