@@ -178,6 +178,7 @@ with open('data/items.txt') as file:
 '''
 
 
+'''
 # Main sprites
 all_pokemon = list(pokemon.find())
 
@@ -187,3 +188,4 @@ for pmon in all_pokemon:
     query = {"lowercase_name": pmon["lowercase_name"]}
     newvalues = { "$set": {"main_sprite": img} }
     x = pokemon.update_one(query, newvalues)
+'''
