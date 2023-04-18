@@ -158,6 +158,7 @@ with open('data/abilities.txt') as file:
 '''
 
 
+'''
 # Scrape items and put them in database
 with open('data/items.txt') as file:
     data = json.loads(file.read())
@@ -174,3 +175,15 @@ with open('data/items.txt') as file:
         }
         
         x = items.insert_one(itemdict)
+'''
+
+
+# Main sprites
+all_pokemon = list(pokemon.find())
+
+for pmon in all_pokemon:
+    name = pmon["name"].lower()
+    img = "https://play.pokemonshowdown.com/sprites/gen5/{}.png".format(name)
+    query = {"lowercase_name": pmon["lowercase_name"]}
+    newvalues = { "$set": {"main_sprite": img} }
+    x = pokemon.update_one(query, newvalues)
