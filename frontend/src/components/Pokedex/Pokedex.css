@@ -1,7 +1,8 @@
 .table {
-    width: 50%;
+    width: 40%;
     margin: auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11px;
 }
 
 .firstAbility {
@@ -11,4 +12,27 @@
 .statHeader {
     margin-bottom: 0;
     color: #999999;
+}
+
+tr {
+    vertical-align: middle;
+}
+
+
+td {
+    padding-bottom: 1px !important;
+    padding-top: 1px !important;
+}
+
+
+#tablehead {
+    background: lightgrey;
+}
+
+.pokemonName {
+    font-size: 13px;
+}
+
+small {
+    font-size: 10px;
 }
