@@ -15,6 +15,7 @@ import styled from "styled-components";
 
 import Home from './components/Home'
 import Pokedex from './components/Pokedex';
+import Pokemon from './components/Pokemon';
 
 
 const Styles = styled.div`
@@ -40,10 +41,15 @@ const Styles = styled.div`
 
 
 function App() {
-  const [currentState, setState] = useState([]);
+  const [pokemon, setPokemon] = useState(0);
 
   useEffect(() => {
-
+    fetch('http://localhost:5000/pokemon').then(res => res.json()).then(data => {
+      console.log(data);
+      setPokemon(data);
+    }).catch(error => {
+      console.error(error);
+    });
   }, []);
 
   return (
@@ -73,7 +79,12 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/pokedex" element={<Pokedex/>} />
+          <Route path="/pokedex" element={<Pokedex pokemon={pokemon}/>} />
+          {
+            pokemon.map((item, index) => (
+              <Route path={"/pokedex/" + item["lowercase_name"]} element={<Pokemon data={item}></Pokemon>}></Route>
+            ))
+          }
         </Routes>
 
 
