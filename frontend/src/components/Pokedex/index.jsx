@@ -3,8 +3,8 @@ import Table from 'react-bootstrap/Table';
 
 import { useNavigate } from "react-router-dom";
 
-import './Pokedex.css'
-import typeImages from '../../constants/type_labels'
+import './Pokedex.css';
+import typeImages from '../../constants/type_labels';
 
 
 const Pokedex = (props) => {

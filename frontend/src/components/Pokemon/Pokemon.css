@@ -1,0 +1,39 @@
+.table {
+    width: 28%;
+    margin: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11px;
+}
+
+.individualPokemonName {
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.name-type {
+    font-size: 18px;
+}
+
+.pokemon-number {
+    color: #999999;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.pokemon-title {
+    display: inline-block;
+}
+
+.secondAbility {
+    margin-bottom: 0;
+}
+
+.pokemon-table td {
+    padding-left: 1px !important;
+    padding-right: 1px !important;
+}
+
+.pokemon-table-head {
+    font-size: 13px;
+}

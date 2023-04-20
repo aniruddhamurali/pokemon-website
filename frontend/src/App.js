@@ -52,6 +52,8 @@ function App() {
     });
   }, []);
 
+  if (!pokemon) return 'Loading...';
+
   return (
     <Router>
       <div className="App">
