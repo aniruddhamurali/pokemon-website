@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import './Move.css';
 import typeImages from '../../constants/type_labels';
+import categoryImages from '../../constants/category_labels';
 
 
 const Move = (props) => {
@@ -21,7 +22,7 @@ const Move = (props) => {
                 <Col lg="1">
                     <img src={imgsrc} alt="" width={typeWidth}></img>
                 </Col>
-                <Col lg="1">{move.category}</Col>
+                <Col lg="1">{categoryImages[move.category]}</Col>
                 <Col lg="1">{move.base_power}</Col>
                 <Col lg="1">{move.accuracy}</Col>
                 <Col lg="1">{move.pp}</Col>
