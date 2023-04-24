@@ -42,11 +42,24 @@ const Styles = styled.div`
 
 function App() {
   const [pokemon, setPokemon] = useState(0);
+  const [moves, setMoves] = useState(0);
 
   useEffect(() => {
     fetch('http://localhost:5000/pokemon').then(res => res.json()).then(data => {
       console.log(data);
       setPokemon(data);
+    }).catch(error => {
+      console.error(error);
+    });
+
+    fetch('http://localhost:5000/moves').then(res => res.json()).then(data => {
+      var allMoves = {};
+      for (var i = 0; i < data.length; i++) {
+        allMoves[data[i]["lowercase_name"]] = data[i]
+      }
+      console.log(data);
+      console.log(allMoves);
+      setMoves(allMoves);
     }).catch(error => {
       console.error(error);
     });
@@ -84,7 +97,7 @@ function App() {
           <Route path="/pokedex" element={<Pokedex pokemon={pokemon}/>} />
           {
             pokemon.map((item, index) => (
-              <Route path={"/pokedex/" + item["lowercase_name"]} element={<Pokemon data={item}></Pokemon>}></Route>
+              <Route path={"/pokedex/" + item["lowercase_name"]} element={<Pokemon data={item} moves={moves}></Pokemon>}></Route>
             ))
           }
         </Routes>

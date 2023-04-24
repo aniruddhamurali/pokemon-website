@@ -126,7 +126,7 @@ const Pokemon = (props) => {
         </Table>
         <br></br>
         <br></br>
-        <PokemonMoves moves={props.data["learnset"]}></PokemonMoves>
+        <PokemonMoves moves={props.data["learnset"]} allMoves={props.moves}></PokemonMoves>
     </div>
   );
 }

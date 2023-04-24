@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import './PokemonMoves.css';
 import typeImages from '../../constants/type_labels';
+import Move from '../Move';
 
 
 const PokemonMoves = (props) => {
@@ -23,8 +24,8 @@ const PokemonMoves = (props) => {
             {
                 props.moves["levelup"].map((item, index) => (
                     <Row>
-                        <Col>{"L" + item["level"]}</Col>
-                        <Col>{item["move"]}</Col>
+                        <Col className="level">{"L" + item["level"]}</Col>
+                        <Col lg="11"><Move move={item["move"]} allMoves={props.allMoves}></Move></Col>
                     </Row>
                 ))
             }
@@ -41,8 +42,9 @@ const PokemonMoves = (props) => {
             </Row>
             {
                 props.moves[moveType].map((item, index) => (
-                    <Row>
-                        <Col>{item}</Col>
+                    <Row className="move">
+                        <Col></Col>
+                        <Col lg="11"><Move move={item} allMoves={props.allMoves}></Move></Col>
                     </Row>
                 ))
             }

@@ -29,5 +29,10 @@ def get_pokemon():
     pokemon = list(db.pokemon.find())
     return json_util.dumps(pokemon)
 
+@app.route('/moves', methods=["GET"])
+def get_moves():
+    moves = list(db.moves.find({}))
+    return json_util.dumps(moves)
+
 if __name__ == "__main__":
     app.run(debug=True)
