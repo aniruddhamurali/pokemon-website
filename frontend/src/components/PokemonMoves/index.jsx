@@ -17,7 +17,7 @@ const PokemonMoves = (props) => {
 
     var generateLevelUpRows = (moveType) => {
         return <Container>
-            <Row>
+            <Row className="move-type-header">
                 <Col>Level-Up</Col>
             </Row>
             {
@@ -36,7 +36,7 @@ const PokemonMoves = (props) => {
 
     var generateOtherRows = (moveType) => {
         return <Container>
-            <Row>
+            <Row className="move-type-header">
                 <Col>{moveTypeHeaders[moveType]}</Col>
             </Row>
             {
@@ -55,7 +55,7 @@ const PokemonMoves = (props) => {
     
     
     return (
-        <div>
+        <div className="pokemon-moves">
             {generateLevelUpRows("levelup")}
             {generateOtherRows("TM/HM")}
             {generateOtherRows("eggmoves")}

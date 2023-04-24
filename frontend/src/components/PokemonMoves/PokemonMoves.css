@@ -1,0 +1,12 @@
+.move-type-header {
+    background-color: #DAE5F0;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    border: solid 1px #aaa;
+}
+
+.pokemon-moves {
+    width: 40%;
+    margin: auto;
+}
