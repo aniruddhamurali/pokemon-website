@@ -13,7 +13,7 @@ import {Navbar, Nav, Container, NavDropdown} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import styled from "styled-components";
 
-import Home from './components/Home'
+import Home from './components/Home';
 import Pokedex from './components/Pokedex';
 import Pokemon from './components/Pokemon';
 

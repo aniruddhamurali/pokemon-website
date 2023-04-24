@@ -56,7 +56,7 @@ const Pokedex = (props) => {
                             if (item["types"][1] && item["abilities"]["1"]) {
                                 return <tr onClick={() => getPokemon(item)}>
                                     <td><img src={item["main_sprite"]} alt="" width={spriteWidth}></img></td>
-                                    <td class="pokemonName">{formatName(item["name"])}</td>
+                                    <td className="pokemonName">{formatName(item["name"])}</td>
                                     <td>
                                         {typeImages[item["types"][0]]}{typeImages[item["types"][1]]}
                                     </td>
@@ -113,7 +113,7 @@ const Pokedex = (props) => {
                             } else if (item["types"][1]) {
                                 return <tr onClick={() => getPokemon(item)}>
                                     <td><img src={item["main_sprite"]} alt="" width={spriteWidth}></img></td>
-                                    <td class="pokemonName">{formatName(item["name"])}</td>
+                                    <td className="pokemonName">{formatName(item["name"])}</td>
                                     <td>
                                         {typeImages[item["types"][0]]}{typeImages[item["types"][1]]}
                                     </td>
@@ -165,7 +165,7 @@ const Pokedex = (props) => {
                             } else if (item["abilities"]["1"]) {
                                 return <tr onClick={() => getPokemon(item)}>
                                     <td><img src={item["main_sprite"]} alt="" width={spriteWidth}></img></td>
-                                    <td class="pokemonName">{formatName(item["name"])}</td>
+                                    <td className="pokemonName">{formatName(item["name"])}</td>
                                     <td>
                                         {typeImages[item["types"][0]]}
                                     </td>
@@ -222,7 +222,7 @@ const Pokedex = (props) => {
                             } else {
                                 return <tr onClick={() => getPokemon(item)}>
                                     <td><img src={item["main_sprite"]} alt="" width={spriteWidth}></img></td>
-                                    <td class="pokemonName">{formatName(item["name"])}</td>
+                                    <td className="pokemonName">{formatName(item["name"])}</td>
                                     <td>
                                         {typeImages[item["types"][0]]}
                                     </td>

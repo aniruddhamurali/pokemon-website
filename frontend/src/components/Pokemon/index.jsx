@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 
 import './Pokemon.css';
 import typeImages from '../../constants/type_labels';
+import PokemonMoves from '../PokemonMoves';
 
 
 const Pokemon = (props) => {
@@ -108,7 +109,7 @@ const Pokemon = (props) => {
     <div>
         <br></br>
         <br></br>
-        <p class="individualPokemonName">{formatName(props.data["name"], props.data["number"])}</p>
+        <p className="individual-pokemon-name">{formatName(props.data["name"], props.data["number"])}</p>
         <br></br>
         <Table id="pokemon-table" borderless size="sm">
             <thead className="pokemon-table-head">
@@ -123,6 +124,9 @@ const Pokemon = (props) => {
                 {displayTopInfo()}
             </tbody>
         </Table>
+        <br></br>
+        <br></br>
+        <PokemonMoves moves={props.data["learnset"]}></PokemonMoves>
     </div>
   );
 }
